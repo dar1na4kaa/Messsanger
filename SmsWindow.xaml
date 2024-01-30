@@ -11,12 +11,12 @@
             <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Visible" CanContentScroll="True">
-            <TextBlock Background="AliceBlue" TextWrapping="Wrap" FontSize="25"></TextBlock>
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Visible" CanContentScroll="True" x:Name="Scroll">
+            <TextBlock Background="AliceBlue" TextWrapping="Wrap" FontSize="25" x:Name="textBlock" TextAlignment="Left"></TextBlock>
         </ScrollViewer>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Width="60" FontSize="30" Click="ResetClick">↻</Button>
-            <TextBox Width="550" FontSize="15"></TextBox>
+            <TextBox Width="550" FontSize="20" x:Name="smsBox" TextAlignment="Justify"></TextBox>
             <Button Width="140" FontSize="20" Click="SendClick">Отправить</Button>
             <Button Width="50" FontSize="40" Click="OutToMainClick">←</Button>
         </StackPanel>
