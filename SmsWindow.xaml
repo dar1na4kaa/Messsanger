@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="SmsWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Visible" CanContentScroll="True">
+            <TextBlock Background="AliceBlue" TextWrapping="Wrap" FontSize="25"></TextBlock>
+        </ScrollViewer>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Width="60" FontSize="30">↻</Button>
+            <TextBox Width="600" FontSize="15"></TextBox>
+            <Button Width="140" FontSize="20">Отправить</Button>
+        </StackPanel>
     </Grid>
 </Window>
