@@ -15,9 +15,10 @@
             <TextBlock Background="AliceBlue" TextWrapping="Wrap" FontSize="25"></TextBlock>
         </ScrollViewer>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Width="60" FontSize="30">↻</Button>
-            <TextBox Width="600" FontSize="15"></TextBox>
-            <Button Width="140" FontSize="20">Отправить</Button>
+            <Button Width="60" FontSize="30" Click="ResetClick">↻</Button>
+            <TextBox Width="550" FontSize="15"></TextBox>
+            <Button Width="140" FontSize="20" Click="SendClick">Отправить</Button>
+            <Button Width="50" FontSize="40" Click="OutToMainClick">←</Button>
         </StackPanel>
     </Grid>
 </Window>

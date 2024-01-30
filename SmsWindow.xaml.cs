@@ -23,5 +23,20 @@ namespace Messsanger
         {
             InitializeComponent();
         }
+
+        private void ResetClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SendClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OutToMainClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
