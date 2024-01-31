@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="EnterWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="errorTextBlock" Grid.Row="0" FontSize="25" TextWrapping="Wrap" TextAlignment="Center" Foreground="Red"/>
+        <TextBlock Grid.Row="1" Text="Введите логин(e-mail):" FontSize="23" Margin="200,0,200,45"/>
+        <TextBox x:Name="loginBox"  Grid.Row="1" FontSize="18" Margin="200,45,200,0"/>
+
+        <TextBlock Grid.Row="2" Text="Введите пароль:" FontSize="23" Margin="200,0,200,45"/>
+        <PasswordBox x:Name="passwordBox" Grid.Row="2" FontSize="18" Margin="200,45,200,0"/>
+
+        <Button x:Name="enterButton" Grid.Row="3" Grid.Column="1" Content="Войти" FontSize="22" Margin="260,20,260,20" Click="enterButton_Click"/>
     </Grid>
 </Window>
