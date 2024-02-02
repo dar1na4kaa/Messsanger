@@ -23,6 +23,9 @@ namespace Messsanger
         public MainWindow()
         {
             InitializeComponent();
+            EnterWindow enterWindow = new EnterWindow();
+            enterWindow.Show();
+            this.Close();
         }
     }
 }
