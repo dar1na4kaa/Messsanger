@@ -23,7 +23,7 @@ namespace Messsanger
     /// </summary>
     public partial class EnterWindow : Window
     {
-        static SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=Messanger; Integrated Security=SSPI;");
+        static SqlConnection conn;
         public EnterWindow()
         {
             InitializeComponent();
@@ -31,28 +31,29 @@ namespace Messsanger
 
         private void enterButton_Click(object sender, RoutedEventArgs e)
         {
-            conn.Open();
+            conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=Messanger; Integrated Security=SSPI;");
             errorTextBlock.Text = "";
-            string email = "";
-            string password = "";
-            string query = @"select Email, Password from [User]";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = query;
+            string enteredLogin = loginBox.Text;
+            string enteredPassword = passwordBox.Password;
+            string query = $"SELECT COUNT(*) FROM [User] WHERE Email='{enteredLogin}' AND Password='{enteredPassword}'";
 
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            using (SqlCommand command = new SqlCommand(query, conn))
             {
-                email = reader[0].ToString();
-                password = reader[1].ToString();
-                if (email == loginBox.Text.Trim() && password == passwordBox.Password)
+                conn.Open();
+                int count = (int)command.ExecuteScalar();
+                conn.Close();
+
+                if (count > 0)
                 {
                     SmsWindow smsWindow = new SmsWindow();
                     smsWindow.Show();
                     this.Close();
                 }
+                else
+                {
+                    errorTextBlock.Text = "Неправильный логин или пароль!";
+                }
             }
-            conn.Close();
         }
     }
 }
